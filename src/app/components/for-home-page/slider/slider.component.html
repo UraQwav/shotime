@@ -1,0 +1,45 @@
+<div class="slider">
+    <div class="slider-navigation">
+        <div class="slider-description">
+            <div class="slider-description-content">
+                <div class="slider-description-title">Discover</div>
+                <div class="slider-description-new">new</div>
+            </div>
+        </div>
+        <div class="navigation-arrow">    
+            <div class="prew">
+                <div class="arrow"><</div>
+                <div class="text-navigate" (click)="pref()">Pref</div>
+            </div>
+            <div class="next">
+                <div class="arrow">></div>
+                <div class="text-navigate" (click)="next()">Next</div>
+            </div>
+        </div>
+    </div>
+    <div class="slider-contents">
+        <div class="slider-content" [style] = margin>
+        <div class="slider-content"  *ngFor="let item of items; index as i; first as isFirst">
+            <div class="slider-content-item"  [style]=item.style>
+                <div class="item-number">{{item.number}}</div>
+                <div class="item-images">
+                    <img src="{{item.imagePath}}" alt="">
+                </div>
+                <div class="item-name">Nike freern 2018</div>
+                <div class="item-cost">{{item.price}}</div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="slider-category">
+        <div class="slider-category-item">
+            <img src="" alt="">
+        </div>
+        <div class="slider-category-item">
+            <img src="" alt="">
+        </div>
+        <div class="slider-category-item">
+            <img src="" alt="">
+        </div>
+    </div>
+</div>
