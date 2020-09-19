@@ -2,7 +2,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 2rem 6rem;
+    padding: 2rem 5vw;
+    width: 90vw;
+    position: absolute;
 }
 .header-logo a{
     font-weight: 800;

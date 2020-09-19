@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { newArray } from '@angular/compiler/src/util';
 import { Shoes } from '../../../data/Shoes'
+import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
@@ -9,7 +10,8 @@ import { Shoes } from '../../../data/Shoes'
 export class SliderComponent implements OnInit {
   items: Array<Shoes> = [];
   margin;
-  marginValue =-23;
+  @ViewChild('panel') myDiv: ElementRef;
+  
   constructor() { 
     for (let index = 0; index < 15; index++) {
       let item = new Shoes();
@@ -29,20 +31,13 @@ export class SliderComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   pref(){
-    if(this.marginValue<=-23){
-      console.log(this.marginValue + "p bEFORE");
-      this.marginValue=this.marginValue+23;
-      this.margin = "margin-left:"+this.marginValue+"vw; transition:1s";
-      console.log(this.marginValue + "p AFTER");
-    }
+    this.myDiv.nativeElement.scrollTo({ left: (this.myDiv.nativeElement.scrollLeft - 410), behavior: 'smooth' });
+   
   }
   next(){
-    if(this.marginValue>=-23*14){
-      this.margin = "margin-left:"+this.marginValue+"vw; transition:1s";
-      this.marginValue=this.marginValue - 23;
-      console.log(this.marginValue + "n aFTETR");
-    }
+    this.myDiv.nativeElement.scrollTo({ left: (this.myDiv.nativeElement.scrollLeft + 410), behavior: 'smooth' });
   }
 
 }
