@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { newArray } from '@angular/compiler/src/util';
 import { Shoes } from '../../../data/Shoes'
-import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
+import { Route } from '@angular/compiler/src/core';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
@@ -12,17 +13,18 @@ export class SliderComponent implements OnInit {
   margin;
   @ViewChild('panel') myDiv: ElementRef;
   
-  constructor() { 
-    for (let index = 0; index < 15; index++) {
+  constructor(private router:Router) { 
+    for (let index = 1; index < 16; index++) {
       let item = new Shoes();
-      if(index+1<10)
-      item.number = '0' + (index+1);
-      else item.number = (index+1);
-      if(index%2==1)
-        item.imagePath = 'assets/images/nike/1.png';
-      else  item.imagePath = 'assets/images/nike/2.png';
+      item.id=index;
+      if(index<10)
+      item.number = '0' + (index);
+      else item.number = (index);
+      if(index%2==0)
+        item.imagePath = 'assets/images/nike/1.webp';
+      else  item.imagePath = 'assets/images/nike/2.webp';
       item.price = '$101';
-      if(index%2==1)
+      if(index%2==0)
       item.style = 'background: #f953c6;   background: -webkit-linear-gradient(to right, #b91d73, #f953c6);  background: linear-gradient(to right, #b91d73, #f953c6);';
       else   item.style = 'background: #06beb6; background: -webkit-linear-gradient(to left, #48b1bf, #06beb6);  background: linear-gradient(to left, #48b1bf, #06beb6); ';
       this.items.push(item);
@@ -33,11 +35,41 @@ export class SliderComponent implements OnInit {
   }
 
   pref(){
-    this.myDiv.nativeElement.scrollTo({ left: (this.myDiv.nativeElement.scrollLeft - 410), behavior: 'smooth' });
-   
+    const ua = window.navigator.userAgent;
+    const edge = ua.indexOf('Edge/');
+    if (edge > 0) {
+      for (let index = 0; index < 410; index++) {
+       setTimeout(() => {
+        
+          this.myDiv.nativeElement.scrollLeft -= 1;
+         }, 10);
+       }
+    }
+    else{
+      this.myDiv.nativeElement.scrollTo({ left: (this.myDiv.nativeElement.scrollLeft - 410), behavior: 'smooth' });
+    }
   }
   next(){
-    this.myDiv.nativeElement.scrollTo({ left: (this.myDiv.nativeElement.scrollLeft + 410), behavior: 'smooth' });
+    const ua = window.navigator.userAgent;
+    const edge = ua.indexOf('Edge/');
+    if (edge > 0) {
+      for (let index = 0; index < 410; index++) {
+        setTimeout(() => {
+           this.myDiv.nativeElement.scrollLeft += 1;
+          }, 1);
+        }
+    }
+    else{
+      this.myDiv.nativeElement.scrollTo({ left: (this.myDiv.nativeElement.scrollLeft + 410), behavior: 'smooth' });
+    }
   }
-
+  scroll(){
+    
+  }
+  openItem(item: Shoes){
+    item.open=true;
+    setTimeout(() => {
+      this.router.navigate(['shoes/', item.id ]);
+     }, 500);
+  }
 }

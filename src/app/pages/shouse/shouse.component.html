@@ -1,0 +1,23 @@
+<div class = "shoes-open-circle-visable" [style]=shoes.style></div>
+<div class="shoes-page">
+    <div class="shouse-page-content">
+        <div class="shouse-page-slider">
+            <div class="shoes-page-img">
+                <div class="shouse-page-circle" [style]=shoes.style></div>
+                <img src="{{shoes.imagePath}}" alt="">
+                <div class="shoes-shodow"></div>
+            </div>
+        </div>
+        <div class="shoes-page-info">
+            <div class="shoes-page-name">{{shoes.name}}</div>
+            <div class="shoes-page-cost">{{shoes.price}}</div>
+            <div class="shoes-page-size">
+                <div class="size-item"  *ngFor="let item of shoes.size; index as i; first as isFirst">
+                    <div class="size-number">{{item}}</div>
+                </div>
+                <div class="add-to-cart">Add+</div>
+            </div>
+            <div class="shoes-page-text">For orders above $150 standart shipping is always free!</div>
+        </div>
+    </div>
+</div>

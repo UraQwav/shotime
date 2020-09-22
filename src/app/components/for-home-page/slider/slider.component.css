@@ -16,7 +16,7 @@
    justify-content: center;
     height: 50vh;
     width: 20vh;
-
+    margin: 15vh auto;
 }
 .slider-description-title{
     font-size: 5rem;
@@ -53,8 +53,8 @@
     margin:2rem;
 }
 .slider-content-item{
-    height: 50vh;
-    width: 13vw;
+    height: 53vh;
+    width: 190px;
     padding: 2rem 3rem;
     margin-right: 3rem;
     border-radius: 20px;
@@ -67,6 +67,7 @@
     box-shadow: 0rem 0rem 2rem 0.35rem rgba(0, 0, 0, 0.15);
     transform: scale(1.12);
     transition: 0.7s;
+    cursor: pointer;
 }
 .item-number{
     font-size: 5rem;
@@ -78,7 +79,7 @@
     font-size: 1.3rem;
 }
 .item-cost{
-    color: #d7eb65;
+    color: #e9eb65;
     font-weight: bold;
     font-size:2rem;
 }
@@ -129,4 +130,56 @@
     -ms-user-select: none; /* Internet Explorer (не поддерживается) */
     -o-user-select: none; /* Opera Presto (не поддерживается) */
     -webkit-user-select: none;
+}
+@keyframes open_slider_item{
+    0%{
+        width: 0vh;
+        height: 0vh;
+    }
+    100%{
+        width: 250vh;
+        height: 250vh;
+        filter: grayscale(50%);
+    }
+}
+.open-circle-hiden{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    z-index: 55;
+    border-radius:50%;
+    top: 50%;
+    left: 50%;
+    visibility: hidden;
+}
+.open-circle-visable{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    z-index: 55;
+    animation:.5s open_slider_item;
+    width: 250vh;
+    height: 250vh;
+    border-radius:50%;
+    visibility: visible;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-center{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.slider-category{
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+}
+.slider-category-item {
+    width: 40%;
+}
+.slider-category-item img{
+    width: 100%;
 }

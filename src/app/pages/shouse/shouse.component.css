@@ -1,0 +1,106 @@
+@keyframes clouse_slider_item{
+    0%{
+        width: 250vh;
+        height: 250vh;
+        filter: grayscale(50%);
+    }
+    100%{
+        width: 0vh;
+        height: 0vh;
+        filter: grayscale(100%);
+    }
+}
+.shoes-open-circle-visable{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    z-index: 55;
+    animation:.75s clouse_slider_item;
+    width: 0vh;
+    height: 0vh;
+    border-radius:50%;
+    visibility: visible;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.shoes-page-img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.shoes-page-img img{
+    width: 80%;
+}
+.shoes-page{
+    display: flex;
+    flex-direction: column;
+}
+.shouse-page-content{
+    display: inherit;
+    margin: 7rem;
+}
+.shouse-page-circle{
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+}
+.shoes-shodow{
+    box-shadow: 0rem 0rem 2rem 1rem rgba(0, 0, 0, 0.5);
+    width: 30vw;
+    position: absolute;
+    margin-top: 13%;
+}
+.shouse-page-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.shoes-page-name{
+    font-size: 2.2rem;
+    margin: 1rem;
+}
+.shoes-page-cost{
+    margin: 1rem;
+    font-size: 2.2rem;
+    color: #d65858;
+}
+.shoes-page-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-transform: uppercase;
+    width: 35%;
+}
+.shouse-page-slider{
+    display: flex;
+    flex-direction: column;
+    width: 55%
+}
+.shoes-page-size{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.size-item{
+    margin: 1rem;
+    cursor: pointer;
+}
+.add-to-cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    padding: 1rem;
+    background: #d65858;
+    color: #fff;
+    cursor: pointer;
+}
+.shoes-page-text{
+    margin: 1rem;
+    color: #707070;
+}

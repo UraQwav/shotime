@@ -7,39 +7,44 @@
             </div>
         </div>
         <div class="navigation-arrow">    
-            <div class="prew">
+            <div class="prew" (click)="pref()">
                 <div class="arrow"><</div>
-                <div class="text-navigate" (click)="pref()">Pref</div>
+                <div class="text-navigate">Pref</div>
             </div>
-            <div class="next">
+            <div class="next" (click)="next()">
                 <div class="arrow">></div>
-                <div class="text-navigate" (click)="next()">Next</div>
+                <div class="text-navigate">Next</div>
             </div>
         </div>
     </div>
     <div #panel class="slider-contents" >
-        <div class="slider-content" [style] = margin>
+        <div class="slider-content" (wheel)="scroll()" [style] = margin>
         <div class="slider-content"  *ngFor="let item of items; index as i; first as isFirst">
-            <div class="slider-content-item"  [style]=item.style>
+            <div class="slider-center"  (click)="openItem(item)">
+                <div class="slider-content-item" [style]=item.style>
                 <div class="item-number">{{item.number}}</div>
                 <div class="item-images">
                     <img src="{{item.imagePath}}" alt="">
                 </div>
                 <div class="item-name">Nike freern 2018</div>
                 <div class="item-cost">{{item.price}}</div>
+                </div>
+            </div>
+            <div  class="full-slider-content-item">
+                <div [class.open-circle-visable]="item.open" [class.open-circle-hiden]="!item.open" [style]=item.style></div>
             </div>
         </div>
         </div>
     </div>
     <div class="slider-category">
         <div class="slider-category-item">
-            <img src="" alt="">
+            <img src="assets/images/icons8-nike-150.png" alt="">
         </div>
         <div class="slider-category-item">
-            <img src="" alt="">
+            <img src="assets/images/icons8-adidas-trefoil-150.png" alt="">
         </div>
         <div class="slider-category-item">
-            <img src="" alt="">
+            <img src="assets/images/icons8-nike-150.png" alt="">
         </div>
     </div>
 </div>

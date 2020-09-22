@@ -9,6 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SliderComponent } from './components/for-home-page/slider/slider.component';
+import { ShouseComponent } from './pages/shouse/shouse.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SliderComponent } from './components/for-home-page/slider/slider.compon
     HeaderComponent,
     FooterComponent,
     HomePageComponent,
-    SliderComponent
+    SliderComponent,
+    ShouseComponent
   ],
   imports: [
     BrowserModule,
